@@ -88,3 +88,8 @@ bst.insert(14);
 bst.insert(8);
 bst.insert(11);
 console.log(bst.contains(10));
+
+//  Big O:
+//  Insertion - O(log n)
+//  Searching - O(log n)
+//  NOTE: As the number of nodes double, only increase the number of steps to insert/find by 1.
