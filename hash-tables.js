@@ -15,5 +15,19 @@ function hash(key, arrayLength) {
   return total;
 }
 
-console.log(hash("elation", 10));
-console.log(hash("quantum", 10));
+// Improved Hash Function (only work for strings)
+function improvedHash(key, arrayLen) {
+  let total = 0;
+  let prime_num = 31;
+  for (let i = 0; i < Math.min(key.length, 100); i++) {
+    let char = key[i];
+    let value = char.charCodeAt(0) - 96;
+    total = (total * prime_num + value) % arrayLen;
+  }
+  return total;
+}
+
+// console.log(hash("elation", 10));
+// console.log(hash("quantum", 10));
+console.log(improvedHash("cyan", 13));
+console.log(improvedHash("blue", 13));
