@@ -29,8 +29,8 @@ function improvedHash(key, arrayLen) {
 
 // console.log(hash("elation", 10));
 // console.log(hash("quantum", 10));
-console.log(improvedHash("cyan", 13));
-console.log(improvedHash("blue", 13));
+// console.log(improvedHash("cyan", 13));
+// console.log(improvedHash("blue", 13));
 
 // Dealing with Collisions
 //
@@ -38,3 +38,21 @@ console.log(improvedHash("blue", 13));
 //                      - this allow to store multiple key-value pairs at the same index
 // 2. Linear Probing - we store one piece of data at each position
 //                   - when we find a colision, we search through the array to find the next empty slot
+
+// HashTable class
+class HashTable {
+  constructor(size = 53) {
+    this.keyMap = new Array(size);
+  }
+
+  _hash(key) {
+    let total = 0;
+    let prime_num = 31;
+    for (let i = 0; i < Math.min(key.length, 100); i++) {
+      let char = key[i];
+      let value = char.charCodeAt(0) - 96;
+      total = (total * prime_num + value) % this.keyMap.length;
+    }
+    return total;
+  }
+}
