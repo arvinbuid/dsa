@@ -31,3 +31,10 @@ function improvedHash(key, arrayLen) {
 // console.log(hash("quantum", 10));
 console.log(improvedHash("cyan", 13));
 console.log(improvedHash("blue", 13));
+
+// Dealing with Collisions
+//
+// 1. Seperate Chaining - each index in our array we store our values using a more sophisticated data structure (e.g array, linked list)
+//                      - this allow to store multiple key-value pairs at the same index
+// 2. Linear Probing - we store one piece of data at each position
+//                   - when we find a colision, we search through the array to find the next empty slot
