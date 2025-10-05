@@ -41,7 +41,7 @@ function improvedHash(key, arrayLen) {
 
 // HashTable class
 class HashTable {
-  constructor(size = 4) {
+  constructor(size = 53) {
     this.keyMap = new Array(size);
   }
 
@@ -63,11 +63,28 @@ class HashTable {
     }
     this.keyMap[index].push([key, value]);
   }
+
+  get(key) {
+    let index = this._hash(key);
+    if (this.keyMap[index]) {
+      for (let i = 0; i < this.keyMap[index].length; i++) {
+        if (this.keyMap[index][i][0] === key) {
+          return this.keyMap[index][i][1]; // return the value of index 1
+        }
+      }
+    }
+    return undefined;
+  }
 }
 
-const ht = new HashTable();
-console.log(ht.set("hello", "good morning"));
-console.log(ht.set("I love", "cheeseburgers"));
-console.log(ht.set("live and", "let die"));
-console.log(ht.set("beautiful", "mistakes"));
-console.log(ht.keyMap);
+let ht = new HashTable(17);
+ht.set("red", "#FF0000");
+ht.set("white", "#FFFFFF");
+ht.set("cyan", "#00FFFF");
+ht.set("silver", "#C0C0C0");
+ht.set("blue", "#0000FF");
+ht.set("gray", "#808080");
+ht.set("black", "#000000");
+ht.set("orange", "#FFA500");
+console.log(ht);
+console.log(ht.get("black"));
