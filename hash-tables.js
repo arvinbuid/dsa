@@ -158,3 +158,8 @@ console.log(ht.keys());
 // ht.values().forEach((value, index) => {
 //   console.log(`value ${index + 1}:`, value);
 // });
+
+// Big O:
+// Insert: O(1)
+// Deletion: O(1)
+// Access: O(1)
