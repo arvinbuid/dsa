@@ -75,6 +75,36 @@ class HashTable {
     }
     return undefined;
   }
+
+  keys() {
+    let keysArr = [];
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          // Run a check to only push if the key is unique only
+          if (!keysArr.includes(this.keyMap[i][j][0])) {
+            keysArr.push(this.keyMap[i][j][0]);
+          }
+        }
+      }
+    }
+    return keysArr;
+  }
+
+  values() {
+    let valuesArr = [];
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          // Run a check to only push if the value is unique only
+          if (!valuesArr.includes(this.keyMap[i][j][1])) {
+            valuesArr.push(this.keyMap[i][j][1]);
+          }
+        }
+      }
+    }
+    return valuesArr;
+  }
 }
 
 let ht = new HashTable(17);
@@ -86,5 +116,20 @@ ht.set("blue", "#0000FF");
 ht.set("gray", "#808080");
 ht.set("black", "#000000");
 ht.set("orange", "#FFA500");
-console.log(ht);
-console.log(ht.get("black"));
+ht.set("orange", "#800000");
+ht.set("orange", "#008000");
+
+// ht.set("purple", "#FFA500");
+// ht.set("pink", "#FFA500");
+// console.log(ht);
+// console.log(ht.get("black"));
+
+// loop through each keys of HashTable class
+ht.keys().forEach((key, index) => {
+  console.log(`key ${index + 1}:`, ht.get(key));
+});
+
+// loop through each values of HashTable class
+ht.values().forEach((value, index) => {
+  console.log(`value ${index + 1}:`, value);
+});
