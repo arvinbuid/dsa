@@ -41,7 +41,7 @@ function improvedHash(key, arrayLen) {
 
 // HashTable class
 class HashTable {
-  constructor(size = 53) {
+  constructor(size = 4) {
     this.keyMap = new Array(size);
   }
 
@@ -55,4 +55,19 @@ class HashTable {
     }
     return total;
   }
+
+  set(key, value) {
+    let index = this._hash(key);
+    if (!this.keyMap[index]) {
+      this.keyMap[index] = []; // if unoccupied, set the index to an empty array (seperate chaining)
+    }
+    this.keyMap[index].push([key, value]);
+  }
 }
+
+const ht = new HashTable();
+console.log(ht.set("hello", "good morning"));
+console.log(ht.set("I love", "cheeseburgers"));
+console.log(ht.set("live and", "let die"));
+console.log(ht.set("beautiful", "mistakes"));
+console.log(ht.keyMap);
