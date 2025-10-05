@@ -105,6 +105,26 @@ class HashTable {
     }
     return valuesArr;
   }
+
+  remove(key) {
+    let index = this._hash(key);
+    if (this.keyMap[index]) {
+      for (let i = 0; i < this.keyMap[index].length; i++) {
+        if (this.keyMap[index][i][0] === key) {
+          // Remove the key-value pair
+          this.keyMap[index].splice(i, 1);
+        }
+
+        // Remove the array if it's empty
+        if (this.keyMap[index].length === 0) {
+          delete this.keyMap[index];
+        }
+
+        return true; // key, value pair successfully removed
+      }
+    }
+    return undefined; // key not found
+  }
 }
 
 let ht = new HashTable(17);
@@ -116,20 +136,25 @@ ht.set("blue", "#0000FF");
 ht.set("gray", "#808080");
 ht.set("black", "#000000");
 ht.set("orange", "#FFA500");
-ht.set("orange", "#800000");
-ht.set("orange", "#008000");
 
 // ht.set("purple", "#FFA500");
 // ht.set("pink", "#FFA500");
 // console.log(ht);
 // console.log(ht.get("black"));
 
+// console.log(ht.remove("orange"));
+// console.log(ht.remove("red"));
+// console.log(ht.remove("white"));
+console.log(ht.remove("silver"));
+
+console.log(ht.keys());
+
 // loop through each keys of HashTable class
-ht.keys().forEach((key, index) => {
-  console.log(`key ${index + 1}:`, ht.get(key));
-});
+// ht.keys().forEach((key, index) => {
+//   console.log(`key ${index + 1}:`, ht.get(key));
+// });
 
 // loop through each values of HashTable class
-ht.values().forEach((value, index) => {
-  console.log(`value ${index + 1}:`, value);
-});
+// ht.values().forEach((value, index) => {
+//   console.log(`value ${index + 1}:`, value);
+// });
