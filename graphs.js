@@ -35,4 +35,13 @@ class Graph {
   constructor() {
     this.adjacencyList = {};
   }
+
+  addVertex(vertex) {
+    // set the adjacency list of that key to empty []
+    if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
+  }
 }
+
+const g = new Graph();
+g.addVertex("PH");
+console.log(g);
