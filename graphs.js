@@ -40,8 +40,19 @@ class Graph {
     // set the adjacency list of that key to empty []
     if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
   }
+
+  addEdge(vertex1, vertex2) {
+    if (!this.adjacencyList[vertex1] || !this.adjacencyList[vertex2]) return false;
+    this.adjacencyList[vertex1].push(vertex2);
+    this.adjacencyList[vertex2].push(vertex1);
+  }
 }
 
 const g = new Graph();
 g.addVertex("PH");
+g.addVertex("Japan");
+g.addVertex("USA");
+g.addEdge("PH", "Japan");
+g.addEdge("Japan", "USA");
+g.addEdge("USA", "PH");
 console.log(g);
