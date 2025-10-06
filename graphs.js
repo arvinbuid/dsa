@@ -13,10 +13,18 @@
 // 1.) Vertex - a node
 // 2.) Edge - connection between nodes
 
-//
 // Types of Graphs:
 //
 // 1.) Undirected Graph - there is no direction or polarity to the connections of edges between the vertices
 // 2.) Directed Graph - often represented with arrows which indicates the direction and polarity assign to an edge
 // 3.) Weighted Graph - graph where each edge has a number (weight) that represents distance, cost, or time
 // 4.) Unweighted Graph - opposite of weighted graph
+
+// Matrix - specialized, two-dimensional data structure consisting of a rectangular grid of numbers, symbols, or expressions organized into rows and columns
+
+// Storing Graphs:
+//
+// 1.) Adjacency Matrix - a square matrix used to represent a finite graph
+//                      - information is stored in rows and columns
+//                      - The elements of the matrix indicate whether pairs of vertices are adjacent or not in the graph
+// 2.) Adjacency List - used to represent a graph where each node in the graph stores a list of its neighboring vertices
