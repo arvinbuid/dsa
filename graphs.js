@@ -41,6 +41,16 @@ class Graph {
     if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
   }
 
+  removeVertex(vertex) {
+    if (this.adjacencyList[vertex]) {
+      while (this.adjacencyList[vertex].length) {
+        const adjacentVertex = this.adjacencyList[vertex].pop(); // remove each values inside of the vertex
+        this.removeEdge(vertex, adjacentVertex);
+      }
+      delete this.adjacencyList[vertex]; // delete the vertex
+    }
+  }
+
   addEdge(vertex1, vertex2) {
     if (!this.adjacencyList[vertex1] || !this.adjacencyList[vertex2]) return false;
     this.adjacencyList[vertex1].push(vertex2);
@@ -58,8 +68,12 @@ const g = new Graph();
 g.addVertex("PH");
 g.addVertex("Japan");
 g.addVertex("USA");
+g.addVertex("China");
 g.addEdge("PH", "Japan");
-g.addEdge("Japan", "USA");
 g.addEdge("USA", "PH");
-g.removeEdge("Japan", "USA");
+g.addEdge("China", "PH");
+g.addEdge("China", "USA");
+g.addEdge("China", "Japan");
+// g.removeEdge("Japan", "USA");
+g.removeVertex("China");
 console.log(g);
