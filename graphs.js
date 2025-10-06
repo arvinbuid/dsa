@@ -28,3 +28,11 @@
 //                      - information is stored in rows and columns
 //                      - The elements of the matrix indicate whether pairs of vertices are adjacent or not in the graph
 // 2.) Adjacency List - used to represent a graph where each node in the graph stores a list of its neighboring vertices
+
+/* Graph Class - Undirected Graph */
+
+class Graph {
+  constructor() {
+    this.adjacencyList = {};
+  }
+}
