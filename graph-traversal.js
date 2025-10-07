@@ -101,6 +101,26 @@ class Graph {
     }
     return result;
   }
+
+  breadthFirst(start) {
+    const queue = [start];
+    const result = [];
+    const visited = {};
+
+    visited[start] = true; // mark start vertex as visited
+
+    while (queue.length) {
+      let currentVertex = queue.shift();
+      result.push(currentVertex);
+      this.adjacencyList[currentVertex].forEach((neighbor) => {
+        if (!visited[neighbor]) {
+          visited[neighbor] = true; // mark neighbor as visited
+          queue.push(neighbor);
+        }
+      });
+    }
+    return result;
+  }
 }
 
 const g = new Graph();
@@ -121,7 +141,8 @@ g.addEdge("D", "F");
 g.addEdge("E", "F");
 
 // console.log(g.depthFirstRecursive("A"));
-console.log(g.depthFirstIterative("A"));
+// console.log(g.depthFirstIterative("A"));
+console.log(g.breadthFirst("A"));
 
 //           A
 //         /   \
