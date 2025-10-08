@@ -156,6 +156,7 @@ class BinarySearchTree {
     return target;
   }
 
+  // Recursive
   bfs() {
     let node = this.root;
     const queue = [];
