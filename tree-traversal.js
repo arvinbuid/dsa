@@ -170,6 +170,18 @@ class BinarySearchTree {
     }
     return result;
   }
+
+  // Recursive
+  dfsPreOrder() {
+    const values = [];
+    function traverse(node) {
+      values.push(node.value);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    }
+    traverse(this.root);
+    return values;
+  }
 }
 
 const bst = new BinarySearchTree();
@@ -186,4 +198,5 @@ bst.insert(20);
 //       / \    \
 //      3   8   20
 
-console.log(bst.bfs());
+// console.log(bst.bfs());
+console.log(bst.dfsPreOrder());
