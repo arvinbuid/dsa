@@ -226,3 +226,14 @@ bst.insert(20);
 // console.log(bst.dfsPreOrder());
 // console.log(bst.dfsPostOrder());
 console.log(bst.dfsInOrder()); // 3, 6, 8, 10, 15, 20
+
+// Additional Notes:
+//
+// There are 2 other tree traversals that are worth mentioning:
+//
+// 1.) Boundary Traversal - left boundary (nodes on left excluding leaf nodes)
+//                        - leaves (consist of only the leaf nodes)
+//                        - right boundary (nodes on right excluding leaf nodes)
+// 2.) Diagonal Traversal - all the nodes in a single diagonal will be printed one by one
+//
+// References: https://www.geeksforgeeks.org/dsa/tree-traversals-inorder-preorder-and-postorder/
