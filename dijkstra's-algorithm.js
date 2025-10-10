@@ -8,4 +8,18 @@ class WeightedGraph {
   addVertex(vertex) {
     if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
   }
+  addEdge(vertex1, vertex2, weight) {
+    this.adjacencyList[vertex1].push({node: vertex2, weight});
+    this.adjacencyList[vertex2].push({node: vertex1, weight});
+  }
 }
+
+const g = new WeightedGraph();
+g.addVertex("A");
+g.addVertex("B");
+g.addVertex("C");
+g.addEdge("A", "B", 8);
+g.addEdge("A", "C", 6);
+g.addEdge("B", "C", 10);
+g.addEdge("C", "A", 4);
+console.log(g);
