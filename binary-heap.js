@@ -87,3 +87,7 @@ class BinaryHeap {
 const heap = new BinaryHeap();
 console.log(heap.extractMax());
 console.log(heap);
+
+// Big O of Binary Heap - Insertion - O(log n)
+//                        Removal - O(log n)
+//                        Search - O(n) - not optimized for searching, binary search tree is a better solution
