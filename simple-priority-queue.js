@@ -1,0 +1,20 @@
+class SimplePriorityQueue {
+  constructor() {
+    this.values = [];
+  }
+
+  enqueue(value, priority) {
+    this.values.push({value, priority});
+    this.sort();
+  }
+
+  dequeue() {
+    this.values.shift();
+  }
+
+  sort() {
+    this.values.sort((a, b) => a.priority - b.priority);
+  }
+}
+
+const q = new SimplePriorityQueue();
