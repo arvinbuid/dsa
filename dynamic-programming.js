@@ -14,7 +14,22 @@ function fibonacci(n) {
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-console.log(fibonacci(25));
+// console.log(fibonacci(25));
 
 // Big O Notation: O(2^n) - Big O Exponential
 //                        - the time complexity is terrible and very slow (need improvement)
+
+// To solve the issue about fibonacci recursive approach - 'use past knowledge to make solving future problem easier.'
+//                                                       - use Memoization approach
+
+// Memoization - storing the results of expensive function calls and returning
+//               the cached result when the same inputs occur again
+
+// Memoization Approach
+function improvedFibonacci(n, memo = []) {
+  if (n <= 2) return 1; // base case
+  if (memo[n] !== undefined) return memo[n];
+  memo[n] = improvedFibonacci(n - 1, memo) + improvedFibonacci(n - 2, memo);
+  return memo[n];
+}
+console.log(improvedFibonacci(100));
