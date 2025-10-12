@@ -53,3 +53,7 @@ function fibTabulation(n) {
 }
 
 console.log(fibTabulation(6));
+
+// Big O Notation: O(n) - Big O Linear Time
+//                      - fibTabulation is O(n), same as the fibonacci memoize but slightly faster because it !recursion
+//                      - as (n) grows, the time it takes for this algorithm to run grows in proportion with (n)
