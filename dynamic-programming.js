@@ -32,7 +32,7 @@ function improvedFibonacci(n, memo = []) {
   memo[n] = improvedFibonacci(n - 1, memo) + improvedFibonacci(n - 2, memo);
   return memo[n];
 }
-console.log(improvedFibonacci(100));
+// console.log(improvedFibonacci(100));
 
 // Big O Notation: O(n) - Big O Linear Time
 //                      - the improved fibonacci is much faster and efficient
@@ -41,3 +41,15 @@ console.log(improvedFibonacci(100));
 // Tabulation (Bottom-Up Approach) - storing the result of a previous result in a 'table' (usually an array)
 //                                 - usually done using iteration
 //                                 - better space complexity can be achieved using tabulation
+
+// Tabulation Approach
+function fibTabulation(n) {
+  if (n <= 2) return 1; // base case
+  let fibNums = [0, 1, 1]; // start [0, 1, 2] = 3
+  for (let i = 3; i <= n; i++) {
+    fibNums[i] = fibNums[i - 1] + fibNums[i - 2]; // arr[3] = arr[2] + arr[1] -> arr[4] = arr[3] + arr[2] -> ...
+  }
+  return fibNums[n];
+}
+
+console.log(fibTabulation(6));
