@@ -2,22 +2,77 @@
 //                      - what is the fastest way to get from point A to point B
 //                      - what is the fastest way to get from point A to point B
 
-export class PriorityQueue {
+class Node {
+  constructor(value, priority) {
+    this.value = value;
+    this.priority = priority;
+  }
+}
+
+class PriorityQueue {
   constructor() {
     this.values = [];
   }
-
   enqueue(value, priority) {
-    this.values.push({value, priority});
-    this.sort();
+    const newNode = new Node(value, priority);
+    this.values.push(newNode);
+    this.bubbleUp();
+  }
+  bubbleUp() {
+    let index = this.values.length - 1;
+    const element = this.values[index];
+    while (index > 0) {
+      let parentIdx = Math.floor((index - 1) / 2);
+      let parent = this.values[parentIdx];
+      if (element.priority >= parent.priority) break;
+      this.values[parentIdx] = element;
+      this.values[index] = parent;
+      index = parentIdx;
+    }
   }
 
   dequeue() {
-    return this.values.shift();
+    const min = this.values[0];
+    const end = this.values.pop();
+    if (this.values.length > 0) {
+      this.values[0] = end;
+      this.sinkDown();
+    }
+    return min;
   }
 
-  sort() {
-    this.values.sort((a, b) => a.priority - b.priority);
+  sinkDown() {
+    let index = 0;
+    const length = this.values.length;
+    const element = this.values[0];
+    while (true) {
+      const leftChildIndex = 2 * index + 1;
+      const rightChildIndex = 2 * index + 2;
+      let leftChild, rightChild;
+      let swap = null;
+
+      if (leftChildIndex < length) {
+        leftChild = this.values[leftChildIndex];
+        if (leftChild.priority < element.priority) {
+          swap = leftChildIndex;
+        }
+      }
+
+      if (rightChildIndex < length) {
+        rightChild = this.values[rightChildIndex];
+        if (
+          (swap === null && rightChild.priority < element.priority) ||
+          (swap !== null && rightChild.priority < leftChild.priority)
+        ) {
+          swap = rightChildIndex;
+        }
+      }
+
+      if (swap === null) break; // if there is no swap available, break out of the loop
+      this.values[index] = this.values[swap];
+      this.values[swap] = element;
+      index = swap;
+    }
   }
 }
 
@@ -102,4 +157,4 @@ graph.addEdge("D", "E", 3);
 graph.addEdge("D", "F", 1);
 graph.addEdge("E", "F", 1);
 
-console.log(graph.dijkstras("A", "F")); // [ 'A', 'C', 'D', 'F' ]
+console.log(graph.dijkstras("A", "E")); // [ 'A', 'C', 'D', 'F' ]
