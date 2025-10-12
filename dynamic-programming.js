@@ -33,3 +33,7 @@ function improvedFibonacci(n, memo = []) {
   return memo[n];
 }
 console.log(improvedFibonacci(100));
+
+// Big O Notation: O(n) - Big O Linear Time
+//                      - the improved fibonacci is much faster and efficient
+//                      - as (n) grows, the time it takes for this algorithm to run grows in proportion with (n)
