@@ -122,6 +122,18 @@ class SinglyLinkedList {
     this.length++;
     return true;
   }
+
+  removeAt(index) {
+    if (index < 0 || index >= this.length) return null;
+    if (index === this.length - 1) return this.remove(); // last item
+    if (index === 0) return this.removeHead();
+    // now its somewhere in the middle of the linked list
+    let previousNode = this.get(index - 1);
+    let removedNode = previousNode.next;
+    previousNode.next = removedNode.next;
+    this.length--;
+    return removedNode;
+  }
 }
 
 const list = new SinglyLinkedList();
@@ -135,4 +147,5 @@ list.insert(40);
 // console.log(list.get(3));
 // list.set(0, 4);
 // console.log(list.insertInto(1, 15));
+// list.removeAt(0);
 console.log(list);
