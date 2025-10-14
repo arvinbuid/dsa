@@ -38,6 +38,24 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
+
+  remove() {
+    if (!this.head) return undefined;
+    let current = this.head;
+    let newTail = current;
+    while (current.next) {
+      newTail = current; // always delayed value
+      current = current.next; // loop until .next is null
+    }
+    this.tail = newTail;
+    newTail.next = null;
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return current;
+  }
 }
 
 const list = new SinglyLinkedList();
@@ -45,4 +63,5 @@ list.insert(10);
 list.insert(20);
 list.insert(30);
 list.insert(40);
+console.log(list.remove()); // remove 40
 console.log(list);
