@@ -90,7 +90,16 @@ class SinglyLinkedList {
       current = current.next;
       count++;
     }
-    return current.val;
+    return current;
+  }
+
+  set(index, value) {
+    let node = this.get(index);
+    if (node) {
+      node.val = value;
+      return true;
+    }
+    return false;
   }
 }
 
@@ -102,5 +111,6 @@ list.insert(40);
 // console.log(list.remove()); // remove 40
 // console.log(list.removeHead());
 // console.log(list.addHead(5));
-console.log(list.get(3));
+// console.log(list.get(3));
+// list.set(0, 4);
 console.log(list);
