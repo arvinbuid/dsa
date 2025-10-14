@@ -8,3 +8,41 @@
 // Singly linked list - it consists of nodes where each node contains a data field and a reference to the next node in the linked list
 //                    - the next of the last node is null, indicating the end of the list
 //                    - each node consists of two parts: data and a pointer to the next node
+
+// val = piece of data
+// next = reference to the next node
+
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
+
+class SinglyLinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
+
+  push(val) {
+    const newNode = new Node(val);
+    if (this.head === null) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+    this.length++;
+    return this;
+  }
+}
+
+const list = new SinglyLinkedList();
+list.push(10);
+list.push(20);
+list.push(30);
+list.push(40);
+console.log(list);
