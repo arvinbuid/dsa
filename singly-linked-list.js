@@ -39,6 +39,20 @@ class SinglyLinkedList {
     return this;
   }
 
+  addHead(val) {
+    const newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      let current = this.head;
+      newNode.next = current;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
+
   remove() {
     if (!this.head) return undefined;
     let current = this.head;
@@ -75,8 +89,6 @@ list.insert(20);
 list.insert(30);
 list.insert(40);
 // console.log(list.remove()); // remove 40
-console.log(list.removeHead());
-console.log(list.removeHead());
-console.log(list.removeHead());
-console.log(list.removeHead());
+// console.log(list.removeHead());
+console.log(list.addHead(5));
 console.log(list);
