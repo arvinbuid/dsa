@@ -56,6 +56,14 @@ class SinglyLinkedList {
     }
     return current;
   }
+
+  removeHead() {
+    if (!this.head) return undefined;
+    let current = this.head; // store the current head
+    this.head = current.next;
+    this.length--;
+    return current.val;
+  }
 }
 
 const list = new SinglyLinkedList();
@@ -63,5 +71,6 @@ list.insert(10);
 list.insert(20);
 list.insert(30);
 list.insert(40);
-console.log(list.remove()); // remove 40
+// console.log(list.remove()); // remove 40
+console.log(list.removeHead());
 console.log(list);
