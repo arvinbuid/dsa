@@ -101,6 +101,27 @@ class SinglyLinkedList {
     }
     return false;
   }
+
+  // adding a node to the linked list
+  // at specific position
+  insertInto(index, val) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) {
+      // add to the end
+      !!this.insert(val); // double bang to coerce to boolean
+    } else if (index === 0) {
+      // add at the beginning
+      !!this.addHead(val);
+    } else {
+      let prevNode = this.get(index - 1);
+      let newNode = new Node(val);
+      let temp = prevNode.next;
+      prevNode.next = newNode;
+      newNode.next = temp;
+    }
+    this.length++;
+    return true;
+  }
 }
 
 const list = new SinglyLinkedList();
@@ -113,4 +134,5 @@ list.insert(40);
 // console.log(list.addHead(5));
 // console.log(list.get(3));
 // list.set(0, 4);
+// console.log(list.insertInto(1, 15));
 console.log(list);
