@@ -26,7 +26,7 @@ class SinglyLinkedList {
     this.length = 0;
   }
 
-  push(val) {
+  insert(val) {
     const newNode = new Node(val);
     if (this.head === null) {
       this.head = newNode;
@@ -41,8 +41,8 @@ class SinglyLinkedList {
 }
 
 const list = new SinglyLinkedList();
-list.push(10);
-list.push(20);
-list.push(30);
-list.push(40);
+list.insert(10);
+list.insert(20);
+list.insert(30);
+list.insert(40);
 console.log(list);
