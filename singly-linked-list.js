@@ -179,3 +179,9 @@ list.insert(40);
 console.log(list.reverse());
 list.print();
 // console.log(list);
+
+// Big O:
+// Insertion - O(1)
+// Removal - O(1) or O(n) because it depends on where the element will get removed
+// Searching - O(n)
+// Access - O(n)
