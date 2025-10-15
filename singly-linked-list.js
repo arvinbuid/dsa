@@ -134,6 +134,17 @@ class SinglyLinkedList {
     this.length--;
     return removedNode;
   }
+
+  print() {
+    let arr = [];
+    let current = this.head;
+    while (current) {
+      arr.push(current.val);
+      current = current.next;
+    }
+    const output = arr.join(" -> ");
+    console.log(output);
+  }
 }
 
 const list = new SinglyLinkedList();
@@ -148,4 +159,5 @@ list.insert(40);
 // list.set(0, 4);
 // console.log(list.insertInto(1, 15));
 // list.removeAt(0);
-console.log(list);
+list.print();
+// console.log(list);
