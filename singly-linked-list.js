@@ -135,6 +135,23 @@ class SinglyLinkedList {
     return removedNode;
   }
 
+  reverse() {
+    let node = this.head; // 10
+    this.head = this.tail; // 10 -> 40
+    this.tail = node; // 40 -> 10
+    let next;
+    let prev = null;
+    let counter = 0;
+    while (counter < this.length) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+      counter++;
+    }
+    return this;
+  }
+
   print() {
     let arr = [];
     let current = this.head;
@@ -159,5 +176,6 @@ list.insert(40);
 // list.set(0, 4);
 // console.log(list.insertInto(1, 15));
 // list.removeAt(0);
+console.log(list.reverse());
 list.print();
 // console.log(list);
