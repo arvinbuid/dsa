@@ -62,6 +62,20 @@ class DoublyLinkedList {
     return shiftedNode;
   }
 
+  unshift(val) {
+    const newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.head.prev = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
+
   print() {
     if (!this.head) return null;
     let arr = [];
@@ -83,5 +97,6 @@ list.push(25);
 list.push(30);
 // console.log(list.pop());
 // console.log(list.shift());
-// console.log(list);
+list.unshift(1);
+console.log(list);
 list.print();
