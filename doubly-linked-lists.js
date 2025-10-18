@@ -84,7 +84,7 @@ class DoublyLinkedList {
       arr.push(current.val);
       current = current.next;
     }
-    const list = arr.join(" -> ");
+    const list = arr.join(" <-> ");
     console.log(list);
   }
 
