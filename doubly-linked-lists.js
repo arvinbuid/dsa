@@ -164,7 +164,13 @@ list.push(35);
 // console.log(list.get(4));
 // console.log(list.set(5, 33));
 // console.log(list.insert(3, 22.5));
-console.log(list.remove(1));
-console.log(list.remove(1));
-console.log(list);
+// console.log(list.remove(1));
+// console.log(list.remove(1));
+// console.log(list);
 list.print();
+
+// Big O:
+// Insertion - O(1)
+// Removal - O(1)
+// Searching - O(n)
+// Access - O(n)
