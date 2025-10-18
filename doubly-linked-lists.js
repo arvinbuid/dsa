@@ -97,7 +97,7 @@ class DoublyLinkedList {
         current = current.next;
         count++;
       }
-      return current.val;
+      return current;
     } else {
       let count = this.length - 1; // start from end of list
       let current = this.tail; // start from tail
@@ -105,7 +105,7 @@ class DoublyLinkedList {
         current = current.prev;
         count--;
       }
-      return current.val;
+      return current;
     }
   }
 }
@@ -122,4 +122,4 @@ list.push(35);
 // list.unshift(1);
 // console.log(list);
 list.print();
-console.log(list.get(3));
+console.log(list.get(4));
