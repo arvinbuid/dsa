@@ -87,6 +87,27 @@ class DoublyLinkedList {
     const list = arr.join(" -> ");
     console.log(list);
   }
+
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    if (index <= this.length / 2) {
+      let count = 0;
+      let current = this.head;
+      while (count !== index) {
+        current = current.next;
+        count++;
+      }
+      return current.val;
+    } else {
+      let count = this.length - 1; // start from end of list
+      let current = this.tail; // start from tail
+      while (count !== index) {
+        current = current.prev;
+        count--;
+      }
+      return current.val;
+    }
+  }
 }
 
 const list = new DoublyLinkedList();
@@ -95,8 +116,10 @@ list.push(15);
 list.push(20);
 list.push(25);
 list.push(30);
+list.push(35);
 // console.log(list.pop());
 // console.log(list.shift());
-list.unshift(1);
-console.log(list);
+// list.unshift(1);
+// console.log(list);
 list.print();
+console.log(list.get(3));
