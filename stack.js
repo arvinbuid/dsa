@@ -50,3 +50,13 @@ stack.push(40);
 // console.log(stack.pop());
 // console.log(stack.pop());
 console.log(stack);
+
+// Big O:
+// Insertion - O(1)
+// Removal - O(1)
+// Searching  - O(n)
+// Access  - O(n)
+
+// Note - the most important about Stack are the insertion and removal
+//      - It should be Big O(1) or constant time when it comes to insertion or removal
+//        because it only add and remove a node in the beginning of the stack
