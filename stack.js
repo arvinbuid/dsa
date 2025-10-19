@@ -16,5 +16,24 @@ class Stack {
     this.size = 0;
   }
 
-  push() {}
+  push(val) {
+    const newNode = new Node(val);
+    if (this.first === null) {
+      this.first = newNode;
+      this.last = this.first;
+    } else {
+      let temp = this.first;
+      this.first = newNode;
+      this.first.next = temp;
+    }
+    this.size++;
+    return this;
+  }
 }
+
+const stack = new Stack();
+stack.push(10);
+stack.push(20);
+stack.push(30);
+stack.push(40);
+console.log(stack);
