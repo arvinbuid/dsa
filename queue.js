@@ -26,6 +26,15 @@ class Queue {
     }
     this.size++;
   }
+
+  dequeue() {
+    if (!this.first) return null;
+    let temp = this.first;
+    if (this.first === this.last) this.last = null; // check if only 1 node
+    this.first = this.first.next;
+    this.size--;
+    return temp.value;
+  }
 }
 
 const queue = new Queue();
@@ -33,4 +42,5 @@ queue.enqueue(10);
 queue.enqueue(20);
 queue.enqueue(30);
 queue.enqueue(40);
+console.log(queue.dequeue());
 console.log(queue);
