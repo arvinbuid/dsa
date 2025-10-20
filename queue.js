@@ -44,3 +44,9 @@ queue.enqueue(30);
 queue.enqueue(40);
 // console.log(queue.dequeue());
 console.log(queue);
+
+// Big O:
+// Insertion - O(1)
+// Removal -   O(1)
+// Searching - O(n)
+// Access -    O(n)
